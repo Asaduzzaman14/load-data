@@ -13,8 +13,8 @@ function App() {
 }
 
 function LoadComment() {
-  const [comments, setComments] = useState()
-  useState(() => {
+  const [comments, setComments] = useState([])
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/comments')
       .then(res => res.json())
       .then(data => setComments(data))
@@ -48,7 +48,7 @@ function Comment(props) {
 //  incrimant and decriment
 function IncrimentDec() {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(50)
 
   const Incriment = () => setCount(count + 1)
   const Decriment = () => setCount(count + 1)
